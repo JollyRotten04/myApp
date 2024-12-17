@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4B's Recipe</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logoContent">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <h1 class="logoName">4B's</h1>
+        </div>
+
+        <nav class="navbar">
+            <div class="recipe-link-container">
+                <a href="javascript:void(0)" id="recipe-link">Recipe</a>
+                <div class="dropdown" id="category-dropdown">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="icon">
+            <i class="fas fa-search" id="search"></i>
+            <i class="fas fa-heart" id="heart"></i>
+            <i class="fas fa-user-circle" id="profile"></i>
+        </div>
+
+        <div class="search">
+            <input type="search" placeholder="Search...">
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-container">
+        <!-- User Info Section -->
+        <div class="profile-info">
+            <div class="profile-pic">
+                <!-- Add your profile image here -->
+                <img src="images/profile.jpg" alt="Profile Picture" class="profile-img">
+            </div>
+            <h2>4B's PALATE</h2>
+            <ul class="user-details">
+                <li><strong>Name:</strong> Palate</li>
+                <li><strong>Birthdate:</strong> 12/17/2024</li>
+                <li><strong>Email:</strong> 4b'spalate@email.com</li>
+                <li><strong>Bio:</strong> Just a student trying to figure things out 🤔</li>
+            </ul>
+        </div>
+
+        <!-- Recipe Grid Section -->
+        <div class="recipe-grid">
+            <!-- Add Recipe Card (No Image) -->
+            <div class="recipe-wrapper">
+                <div class="recipe-box add-recipe">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <p class="recipe-name">Add Recipe</p>
+            </div>
+            
+            <!-- Recipe Cards with Images -->
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Crispy Avocado Tacos.jpg" alt="Crispy Avocado Tacos" class="recipe-img">
+                </div>
+                <p class="recipe-name">Crispy Avocado Tacos</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Grilled Chicken Caesar Delight.jpg" alt="Grilled Chicken Caesar Delight" class="recipe-img">
+                </div>
+                <p class="recipe-name">Grilled Chicken Caesar Delight</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Spicy Tuna Tartare.jpg" alt="Spicy Tuna Tartare" class="recipe-img">
+                </div>
+                <p class="recipe-name">Spicy Tuna Tartare</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Calamares.jpg" alt="Calamares" class="recipe-img">
+                </div>
+                <p class="recipe-name">Calamares (Fried Squid Rings)</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Tinolang Manok.jpg" alt="Tinolang Manok" class="recipe-img">
+                </div>
+                <p class="recipe-name">Tinolang Manok (Chicken Ginger Soup)</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Kwek-Kwek.jpg" alt="Kwek-Kwek" class="recipe-img">
+                </div>
+                <p class="recipe-name">Kwek-Kwek (Quail Eggs in Batter)</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/sisig.jpg" alt="Sisig" class="recipe-img">
+                </div>
+                <p class="recipe-name">Sisig (Tofu with Soy Sauce and Chili)</p>
+            </div>
+            <div class="recipe-wrapper">
+                <div class="recipe-box">
+                    <img src="images/Chopsuey.jpg" alt="Chopsuey" class="recipe-img">
+                </div>
+                <p class="recipe-name">Chopsuey (Stir-fried Vegetables with Meat)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Swiper and Custom JS Links -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="prof.js"></script>
+</body>
+</html>
