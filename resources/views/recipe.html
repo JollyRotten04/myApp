@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4B's Recipe</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="recipe.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logoContent">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <h1 class="logoName">4B's</h1>
+        </div>
+
+        <nav class="navbar">
+            <div class="recipe-link-container">
+                <a href="javascript:void(0)" id="recipe-link">Recipe</a>
+                <div class="dropdown" id="category-dropdown">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Lunch</a>
+                    <a href="#">Dinner</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="icon">
+            <i class="fas fa-search" id="search"></i>
+            <i class="fas fa-heart" id="heart"></i>
+        </div>
+
+        <div class="search">
+            <input type="search" placeholder="Search...">
+        </div>
+    </header>
+
+    <!-- Recipe Grid Section Start -->
+    <section class="recipes-grid">
+        <!-- Recipe Card 1 -->
+        <div class="recipe-card" onclick="openRecipeModal('Chocolate Cake')">
+            <div class="recipe-image">
+                <img src="images/chocolate cake.jpg" alt="Chocolate Cake">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Chocolate Cake</h3>
+                <p class="recipe-author">By Chef John</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>(5.0)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 2 -->
+        <div class="recipe-card" onclick="openRecipeModal('Pasta Carbonara')">
+            <div class="recipe-image">
+                <img src="images/pasta carbonara.jpg" alt="Pasta Carbonara">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Pasta Carbonara</h3>
+                <p class="recipe-author">By Chef Jane</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                    <span>(4.5)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 3 -->
+        <div class="recipe-card" onclick="openRecipeModal('Chicken Alfredo')">
+            <div class="recipe-image">
+                <img src="images/chicken alfredo.jpg" alt="Chicken Alfredo">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Chicken Alfredo</h3>
+                <p class="recipe-author">By Chef Mark</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>(5.0)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 4 -->
+        <div class="recipe-card" onclick="openRecipeModal('Vegetable Stir-Fry')">
+            <div class="recipe-image">
+                <img src="images/Vegetable-Stir-fry.jpg" alt="Vegetable Stir-Fry">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Vegetable Stir-Fry</h3>
+                <p class="recipe-author">By Chef Anna</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                    <span>(4.7)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 5 -->
+        <div class="recipe-card" onclick="openRecipeModal('Spaghetti Bolognese')">
+            <div class="recipe-image">
+                <img src="images/spaghetti bolegnese.jpg" alt="Spaghetti Bolognese">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Spaghetti Bolognese</h3>
+                <p class="recipe-author">By Chef Luigi</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                    <span>(4.6)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 6 -->
+        <div class="recipe-card" onclick="openRecipeModal('Caesar Salad')">
+            <div class="recipe-image">
+                <img src="images/caesar salad.jpg" alt="Caesar Salad">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Caesar Salad</h3>
+                <p class="recipe-author">By Chef Sophia</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>(5.0)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 7 -->
+        <div class="recipe-card" onclick="openRecipeModal('Grilled Cheese Sandwich')">
+            <div class="recipe-image">
+                <img src="images/grilled-cheese.jpg" alt="Grilled Cheese Sandwich">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Grilled Cheese Sandwich</h3>
+                <p class="recipe-author">By Chef Bob</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                    <span>(4.2)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 8 -->
+        <div class="recipe-card" onclick="openRecipeModal('Beef Tacos')">
+            <div class="recipe-image">
+                <img src="images/beef tacos.jpg" alt="Beef Tacos">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Beef Tacos</h3>
+                <p class="recipe-author">By Chef Ricardo</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐</span>
+                    <span>(4.8)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 9 -->
+        <div class="recipe-card" onclick="openRecipeModal('Vegetarian Pizza')">
+            <div class="recipe-image">
+                <img src="images/vegetarian-pizza.jpg" alt="Vegetarian Pizza">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Vegetarian Pizza</h3>
+                <p class="recipe-author">By Chef Olivia</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>(5.0)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+        <!-- Recipe Card 10 -->
+        <div class="recipe-card" onclick="openRecipeModal('Chicken Tikka Masala')">
+            <div class="recipe-image">
+                <img src="images/chicken masala.jpg" alt="Chicken Tikka Masala">
+            </div>
+            <div class="recipe-details">
+                <h3 class="recipe-name">Chicken Tikka Masala</h3>
+                <p class="recipe-author">By Chef Priya</p>
+                <div class="rating">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>(5.0)</span>
+                </div>
+            </div>
+            <button class="favorite-button" aria-label="Add to favorites">❤️</button>
+        </div>
+
+    </section>
+    <!-- Recipe Grid Section End -->
+</body>
+</html>
