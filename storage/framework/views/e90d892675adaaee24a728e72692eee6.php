@@ -6,7 +6,7 @@
     <title>4B's Recipe</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/rec.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/rec.css')); ?>">
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
@@ -276,24 +276,24 @@
 <body>
     <header class="header">
         <div class="logoContent">
-        <a href="{{ route('homepage') }}"> <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1></a>
+        <a href="<?php echo e(route('homepage')); ?>"> <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1></a>
         </div>
 
         <nav class="navbar">
             <div class="recipe-link-container">
-                <a href="{{ route('recipe') }}" id="recipe-link">Recipe</a>
+                <a href="<?php echo e(route('recipe')); ?>" id="recipe-link">Recipe</a>
                 <div class="dropdown" id="category-dropdown">
-                    <a href="{{ route('breakfast') }}">Breakfast</a>
-                    <a href="{{ route('lunch') }}">Lunch</a>
-                    <a href="{{ route('dinner') }}">Dinner</a>
+                    <a href="<?php echo e(route('breakfast')); ?>">Breakfast</a>
+                    <a href="<?php echo e(route('lunch')); ?>">Lunch</a>
+                    <a href="<?php echo e(route('dinner')); ?>">Dinner</a>
                 </div>
             </div>
         </nav>
 
         <div class="icon">
             <i class="fas fa-search" id="search"></i>
-            <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
-            <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
+            <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
+            <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
             <!-- Added the menu-bar icon -->
             <i class="fas fa-bars" id="menu-bar"></i>
         </div>
@@ -303,7 +303,7 @@
     <main class="recipe-content">
         <!-- Recipe Image -->
         <div class="recipe-image-container">
-            <img src="{{ asset('images/adobo.jpg') }}" alt="Delicious Recipe" class="recipe-img">
+            <img src="<?php echo e(asset('images/adobo.jpg')); ?>" alt="Delicious Recipe" class="recipe-img">
         </div>
 
         <!-- Recipe Header -->
@@ -370,7 +370,7 @@
         </div>
     </main>
 
-    <script src="{{ asset('js/recipe.js') }}"></script>
+    <script src="<?php echo e(asset('js/recipe.js')); ?>"></script>
     <script>
         // Toggle navbar visibility
         let navbar = document.querySelector('.navbar');
@@ -399,4 +399,4 @@
         });
     </script>
 </body>
-</html>
+</html><?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/ingredients.blade.php ENDPATH**/ ?>

@@ -138,6 +138,7 @@
         overflow: hidden;
         position: relative;
         transition: transform 0.3s ease;
+        cursor: pointer;
     }
 
     .recipe-card:hover {
@@ -198,6 +199,10 @@
         color: #ff0000;
     }
 
+    a{
+        text-decoration: none;
+    }
+
 </style>
 <body>
     <!-- Header Section -->
@@ -210,17 +215,17 @@
             <div class="recipe-link-container">
                 <a href="{{ route('recipe') }}" id="recipe-link">Recipe</a>
                 <div class="dropdown" id="category-dropdown">
-                    <a href="#">Breakfast</a>
-                    <a href="#">Lunch</a>
-                    <a href="#">Dinner</a>
+                    <a href="{{ route('breakfast') }}">Breakfast</a>
+                    <a href="{{ route('lunch') }}">Lunch</a>
+                    <a href="{{ route('dinner') }}">Dinner</a>
                 </div>
             </div>
         </nav>
 
         <div class="icon">
             <i class="fas fa-search" id="search"></i>
-            <i class="fas fa-heart" id="heart"></i>
-            <i class="fas fa-user-circle" id="profile"></i>
+            <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
+            <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
 
         <div class="search">
@@ -308,6 +313,7 @@
         // Loop through recipes and display them
         foreach ($recipes as $recipe) {
             echo "
+            <a href ='" . route('ingredients') . "'>
             <div class='recipe-card' onclick='openRecipeModal(\"{$recipe['name']}\")'>
                 <div class='recipe-image'>
                     <img src='{$recipe['image']}' alt='{$recipe['name']}'>
@@ -321,6 +327,7 @@
                 </div>
                 <button class='favorite-button' aria-label='Add to favorites'>❤️</button>
             </div>
+            </a>
             ";
         }
         ?>

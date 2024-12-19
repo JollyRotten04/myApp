@@ -118,6 +118,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .recipe-card:hover {
@@ -204,8 +205,8 @@ body {
     
         <div class="icon">
             <i class="fas fa-search" id="search"></i>
-            <i class="fas fa-heart" id="heart"></i>
-            <i class="fas fa-user-circle" id="profile"></i>
+            <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
+            <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
     </header>
 

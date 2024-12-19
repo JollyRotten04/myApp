@@ -86,6 +86,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .recipe-image {
@@ -132,6 +133,10 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -150,8 +155,8 @@
         </nav>
         <div>
             <i class="fas fa-search"></i>
-            <i class="fas fa-heart"></i>
-            <i class="fas fa-user-circle"></i>
+            <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
+            <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
     </header>
 
@@ -161,6 +166,7 @@
         <div class="recipes-grid">
             <?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="recipe-card">
+                <a href="<?php echo e(route('ingredients')); ?>">
                 <div class="recipe-image">
                     <img src="<?php echo e(asset('images/images/' . $recipe['image'])); ?>" alt="<?php echo e($recipe['name']); ?>">
                 </div>
@@ -172,6 +178,7 @@
                     </div>
                 </div>
                 <button class="favorite-button">&#10084;</button>
+                </a>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>

@@ -548,7 +548,7 @@ section{
             <i class="fas fa-search" id="search"></i>
             <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
             <i class="fas fa-bars" id="menu-bar"></i>
-            <i class="fas fa-user-circle" id="profile"></i>
+            <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
 
         <div class="search">
@@ -564,7 +564,7 @@ section{
             <p>Discover delicious recipes and food stories that bring people together. 
                 From classic dishes to new favorites, let’s enjoy every bite and share the joy of cooking!</p>
             <div class="home-btn">
-                <a href="#section"><button>see more</button></a>
+                <a href="{{ route('recipe') }}"><button>see more</button></a>
             </div>
         </div>
     </section>
@@ -595,7 +595,7 @@ section{
                             <h3>{$recipe['title']}</h3>
                             <p>{$recipe['desc']}</p>
                             <div class='orderNow'>
-                                <button>See more</button>
+                                <a href='" . route('recipe') . "'><button>See more</button></a>
                             </div>
                         </div>
                     </div>";
@@ -626,7 +626,7 @@ section{
                         <div class='content'>
                             <h3>{$blog['title']}</h3>
                             <p>{$blog['content']}</p>
-                            <a href='#blogs' class='btn'>learn more</a>
+                            <a href='" . route('ingredients') . "' class='btn'>Learn more</a>
                         </div>
                     </div>";
                 }
@@ -661,11 +661,11 @@ section{
             </div>
             <div class="box">
                 <h3>Quick links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Recipe</a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> Favorites</a>
+                <a href="{{ route('recipe') }}"> <i class="fas fa-arrow-right"></i> Recipe</a>
+                <a href="{{ route('favorites') }}"> <i class="fas fa-arrow-right"></i> Favorites</a>
             </div>
             <div class="box">
-                <a href="#"> <i class="fas fa-arrow-right"></i> Account info</a>
+                <a href="{{ route('profile') }}"> <i class="fas fa-arrow-right"></i> Account info</a>
                 <a href="#"> <i class="fas fa-arrow-right"></i> Privacy policy</a>
                 <a href="#"> <i class="fas fa-arrow-right"></i> Our services</a>
             </div>

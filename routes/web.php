@@ -42,7 +42,7 @@ Route::get('/ingredients', [IngredientsController::class, 'index'])->name('ingre
 Route::get('/recipe', [RecipeController::class, 'index'])->name('recipe');
 
 // Profile Route
-Route::get('/profile.html', [ProfileController::class, 'showProfile'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
 
 // Breakfast Routes
 Route::get('/breakfast', [BreakfastController::class, 'index'])->name('breakfast');
