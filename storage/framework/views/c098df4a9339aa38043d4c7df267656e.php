@@ -527,6 +527,10 @@ section{
     display: block;
 }
 
+a{
+    cursor: pointer;
+}
+
     </style>
 
 <body>
@@ -626,7 +630,7 @@ section{
                         <div class='content'>
                             <h3>{$blog['title']}</h3>
                             <p>{$blog['content']}</p>
-                            <a href='" . route('ingredients') . "' class='btn'>Learn more</a>
+                            <a href='" . route('recipe') . "'>See more</a>
                         </div>
                     </div>";
                 }

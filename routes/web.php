@@ -20,7 +20,7 @@ Route::get('/homepage', function () {
 
 // Register Routes
 Route::get('/register', function () {
-    return view('auth.register');
+    return view('signup');
 })->name('register');
 
 // Password Reset Routes

@@ -527,6 +527,10 @@ section{
     display: block;
 }
 
+a{
+    cursor: pointer;
+}
+
     </style>
 
 <body>
@@ -626,7 +630,7 @@ section{
                         <div class='content'>
                             <h3>{$blog['title']}</h3>
                             <p>{$blog['content']}</p>
-                            <a href='" . route('ingredients') . "' class='btn'>Learn more</a>
+                            <a href='" . route('recipe') . "'>See more</a>
                         </div>
                     </div>";
                 }
@@ -641,11 +645,9 @@ section{
 
     <!-- newsletter section start here  -->
     <section class="newsletter">
-        <form action="" method="POST">
-            <h3>Subscribe for latest updates</h3>
-            <input type="email" name="email" placeholder="Enter your email" class="box" required>
-            <input type="submit" value="Subscribe" class="box2">
-        </form>
+        <h3>Subscribe for latest updates</h3>
+        <input type="email" name="email" placeholder="Enter your email" class="box" required>
+        <input type="submit" value="Subscribe" class="box2">
     </section>
     <!-- newsletter section ends here  -->
 
