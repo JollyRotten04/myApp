@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('ingredients');
-            $table->text('instructions');
+            $table->string('recipe_name')->unique(); // Product name (ensuring uniqueness)
+            $table->text('recipe_description'); // Recipe description (text type for longer content)
+            $table->text('recipe_instructions'); // Recipe instructions (text type for longer content)
+            $table->text('recipe_ingredients'); // Recipe ingredients (text type for longer content)
             $table->timestamps();
         });
     }
+
 
 
     /**

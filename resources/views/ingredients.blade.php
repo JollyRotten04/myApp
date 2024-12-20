@@ -126,37 +126,58 @@
     }
 
     .recipe-header {
-        background-color: #f4f4f4;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-    }
+    background-color: #f4f4f4;
+    padding: 20px;
+    padding left word-spacing: 5cm;
+    display: flex;
+    justify-content: inline;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
 
-    .recipe-header h1 {
-        font-size: px;
-        font-weight: bold;
-        color: #57c559;
-        margin: 0;
-    }
+.recipe-header h1 {
+    font-size: px;
+    font-weight: bold;
+    color: #57c559;
+    margin-right: 7cm;
+}
 
-    .recipe-header .rating {
-        display: flex;
-        align-items: center;
-    }
+.recipe-header .rating {
+    display: flex;
+    align-items: center;
+    gap: 3cm; 
+}
 
-    .recipe-header .rating span {
-        font-size: 18px;
-        margin-right: 8px;
-        color: #888;
-    }
+.recipe-header .rating span {
+    font-size: 18px;
+    margin-right: 8px;
+    color: #888;
+}
 
-    .recipe-header .rating i {
-        color: #ffb400;
-        font-size: 18px;
-        margin-right: 2px;
-    }
+#star-rating {
+    display: flex;
+}
+
+#star-rating .fas {
+    font-size: 20px;
+}
+
+#star-rating .fas.fa-heart {
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+#heart-icon {
+    font-size: 30px;
+    color: #888; /* Default unlit color (grey) */
+    transition: color 0.3s ease; /* Smooth color transition */
+    margin-left: 8.5cm;
+}
+
+#heart-icon.liked {
+    color: red; /* Lit up color when clicked (red) */
+}
+
 
     .recipe-image-container {
         text-align: center;
@@ -271,6 +292,24 @@
     a{
         text-decoration: none;
     }
+    
+    .submit-comment-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.submit-comment-btn:hover {
+    background-color: #ff5733;
+}
+
 </style>
 
 <body>
@@ -303,22 +342,26 @@
     <main class="recipe-content">
         <!-- Recipe Image -->
         <div class="recipe-image-container">
-            <img src="{{ asset('images/adobo.jpg') }}" alt="Delicious Recipe" class="recipe-img">
+            <img src="{{ $image }}" alt="Delicious Recipe" class="recipe-img">
         </div>
 
-        <!-- Recipe Header -->
         <div class="recipe-header">
-            <h1>Adobo</h1>
-            <div class="rating">
-                <span>4.8</span>
-                <i class="fas fa-heart"></i>
-            </div>
-        </div>
+        <h1><p>{{ $recipe->recipe_name }}</p></h1>
+    <div class="starrating">
+        <span>4.8</span>
+        <i class="fas fa-star" style="color: #ffb400;"></i>
+    </div>
+    <i class="fas fa-heart" id="heart-icon"></i>
+
+</a>
+    </div>
+</div>
+</div>
+
 
         <!-- Recipe Description -->
         <p class="description">
-            Adobo is a popular Filipino dish known for its savory and tangy flavors, made by simmering meat (commonly chicken or pork) in a marinade of vinegar, soy sauce, garlic, bay leaves, and black peppercorns.
-            It’s a versatile dish that pairs perfectly with steamed rice.
+            {{ $recipe->recipe_description }}
         </p>
 
         <!-- Recipe Details -->
@@ -326,48 +369,47 @@
             <!-- Ingredients Section -->
             <div class="ingredients">
                 <h2>Ingredients</h2>
-                <ul>
-                    <li> 1 kg chicken or pork (or a mix of both)</li>
-                    <li> 1/2 cup soy sauce</li>
-                    <li> 1/4 cup vinegar</li>
-                    <li> 6 cloves garlic, minced</li>
-                    <li> 1-2 bay leaves</li>
-                    <li> 1 tsp whole black peppercorns</li>
-                    <li> 1 cup water</li>
-                    <li> 1 tbsp cooking oil</li>
-                    <li> Optional: 1-2 potatoes, cubed or 1 boiled egg</li>
-                </ul>
+                <p>{!! nl2br(e($recipe->recipe_ingredients)) !!}</p>
             </div>
 
             <!-- Instructions Section -->
             <div class="instructions">
                 <h2>Instructions</h2>
-                <ol>
-                    <li>Step 1: Marinate the meat in soy sauce, 
-                        half the garlic, and peppercorns for at least 30 minutes (or overnight for better flavor).</li>
-                    <li>Step 2: In a pot or pan, heat oil and sauté the remaining garlic until golden brown.</li>
-                    <li>Step 3: Add the marinated meat (reserve the marinade) and cook until browned on all sides.</li>
-                    <li>Step 4: Pour in the marinade, vinegar, and water. Add the bay leaves.</li>
-                    <li>Step 5: Simmer on low heat for 30–40 minutes or until the meat is tender. Stir occasionally.</li>
-                    <li>Step 6: Optional: Add potatoes or eggs during the last 10 minutes of cooking.</li>
-                    <li>Step 7: Taste and adjust the seasoning (add soy sauce or salt as needed).</li>
-                    <li>Step 8: Serve hot with rice. Enjoy!</li>
-                </ol>
+                <p>{!! nl2br(e($recipe->recipe_instructions)) !!}</p>
             </div>
         </div>
 
-        <!-- Rating Section -->
-        <div class="rate-section">
-            <h2>Rate:</h2>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <textarea placeholder="Leave a comment..."></textarea>
-        </div>
+<!-- Rating Section -->
+<div class="rate-section">
+    <h2>Rate:</h2>
+    <div class="stars" id="star-rating">
+        <i class="fas fa-star" data-rating="1"></i>
+        <i class="fas fa-star" data-rating="2"></i>
+        <i class="fas fa-star" data-rating="3"></i>
+        <i class="fas fa-star" data-rating="4"></i>
+        <i class="fas fa-star" data-rating="5"></i>
+    </div>
+    
+    <!-- Comment Form -->
+    <form id="comment-form">
+        <textarea id="comment-text" placeholder="Leave a comment..."></textarea>
+        <button type="submit" class="submit-comment-btn">Submit</button>
+    </form>
+
+    <!-- Confirmation Message -->
+    <div id="confirmation-message" style="display: none; color: #57c559; margin-top: 10px;">
+        Your ratings & comments has been submitted!
+    </div>
+
+    <!-- Display Comment Section -->
+    <div id="user-comments" style="display: none; margin-top: 10px; font-size: 16px; color: #333;">
+        <h3>Your Ratings & Comments:</h3>
+        <div id="comments-list"></div>
+    </div>
+</div>
+
+</div>
+
     </main>
 
     <script src="{{ asset('js/recipe.js') }}"></script>
@@ -397,6 +439,72 @@
                 categoryDropdown.style.display = 'none';
             });
         });
+        
+    // Handle star rating system
+const stars = document.querySelectorAll('#star-rating .fas');
+let selectedRating = 0;
+
+// Add click event to each star
+stars.forEach(star => {
+    star.addEventListener('click', function() {
+        // Get the rating value
+        selectedRating = this.getAttribute('data-rating');
+        
+        // Highlight the selected stars
+        stars.forEach(star => {
+            star.style.color = (star.getAttribute('data-rating') <= selectedRating) ? '#ffb400' : '#ddd';
+        });
+    });
+});
+
+// Handle comment submission
+document.getElementById('comment-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    const commentText = document.getElementById('comment-text').value;
+
+    // Only add comment if there's text and a rating
+    if (commentText.trim() !== '' && selectedRating > 0) {
+        // Create a new div for the comment
+        const newComment = document.createElement('div');
+        newComment.style.marginBottom = '10px';
+
+        // Create the comment content
+        newComment.innerHTML = `<strong>Rating: ${selectedRating} stars</strong><br>${commentText}`;
+
+        // Append the new comment to the comments list
+        document.getElementById('comments-list').appendChild(newComment);
+
+        // Show the confirmation message and comments list
+        document.getElementById('confirmation-message').style.display = 'block';
+        document.getElementById('user-comments').style.display = 'block';
+
+        // Clear the textarea and reset the stars
+        document.getElementById('comment-text').value = '';
+        stars.forEach(star => star.style.color = '#ddd');
+        selectedRating = 0;
+    } else {
+        alert('Please provide a rating and comment!');
+    }
+});
+
+// Get the heart icon element
+const heartIcon = document.getElementById('heart-icon');
+
+// Toggle the like state when the heart icon is clicked
+heartIcon.addEventListener('click', function() {
+    // Toggle the 'liked' class on the heart icon
+    heartIcon.classList.toggle('liked'); // Adds or removes the 'liked' class
+
+    // Check and log the state of the heart (liked or unliked)
+    if (heartIcon.classList.contains('liked')) {
+        console.log('Recipe added to favorites'); // Liked state
+    } else {
+        console.log('Recipe removed from favorites'); // Unliked state
+    }
+});
+
+
     </script>
 </body>
 </html>

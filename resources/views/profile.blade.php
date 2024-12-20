@@ -112,9 +112,27 @@ html::-webkit-scrollbar-thumb{
     display: none;
 }
 
-.navbar {
-    position: relative;
-}
+        /* Navbar - Navigation Links */
+        .navbar {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            position: relative;
+            font-weight: bolder;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
 
 .dropdown {
     position: absolute;
@@ -276,19 +294,18 @@ html::-webkit-scrollbar-thumb{
             <a href="{{ route('homepage') }}" style="text-decoration: none;"><h1 class="logoName">4B's</h1></a>
         </div>
 
-        <nav class="navbar">
-            <div class="recipe-link-container">
-                <a href="{{ route('recipe') }}" id="recipe-link">Recipe</a>
-                <div class="dropdown" id="category-dropdown">
-                    <a href="{{ route('breakfast') }}">Breakfast</a>
-                    <a href="{{ route('lunch') }}">Lunch</a>
-                    <a href="{{ route('dinner') }}">Dinner</a>
-                </div>
+        <div class="navbar">
+            <a href="{{ route('recipe') }}">Recipe  | </a>
+            <div class="breakfast"> 
+                <a href="{{ route('breakfast') }}">Breakfast</a>
             </div>
-        </nav>
+            <div class="hide">
+                <a href="{{ route('lunch') }}">Lunch</a>
+                <a href="{{ route('dinner') }}">Dinner</a>
+            </div>
+        </div>
 
         <div class="icon">
-            <i class="fas fa-search" id="search"></i>
             <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
             <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>

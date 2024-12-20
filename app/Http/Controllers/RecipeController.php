@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -31,5 +31,18 @@ class RecipeController extends Controller
 
         // Pass the recipes data to the favorites view
         return view('favorites', ['recipes' => $recipes]);
+    }
+
+    public function showIngredients(Request $request)
+    {
+        // Retrieve the 'name' and 'image' from the query parameters
+        $image = $request->query('image');
+        $recipeName = $request->query('name');
+
+        // Find the recipe by matching the 'recipe_name' in the database
+        $recipe = Recipe::where('recipe_name', $recipeName)->first(); // Compare with 'recipe_name' column in the database
+    
+        // Pass the 'image' and 'recipe' to the view
+        return view('ingredients', compact('image', 'recipe'));
     }
 }

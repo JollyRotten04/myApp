@@ -6,7 +6,7 @@
     <title>4B's Recipe</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/recipe.css')); ?>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -182,25 +182,25 @@
     <!-- Header Section -->
     <header class="header">
         <div class="logoContent">
-            <a href="{{ route('homepage') }}" style="text-decoration: none;"> 
+            <a href="<?php echo e(route('homepage')); ?>" style="text-decoration: none;"> 
                 <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1>
             </a>
         </div>
 
         <div class="navbar">
-            <a href="{{ route('recipe') }}">Recipe  | </a>
+            <a href="<?php echo e(route('recipe')); ?>">Recipe  | </a>
             <div class="breakfast"> 
-                <a href="{{ route('breakfast') }}">Breakfast</a>
+                <a href="<?php echo e(route('breakfast')); ?>">Breakfast</a>
             </div>
             <div class="hide">
-                <a href="{{ route('lunch') }}">Lunch</a>
-                <a href="{{ route('dinner') }}">Dinner</a>
+                <a href="<?php echo e(route('lunch')); ?>">Lunch</a>
+                <a href="<?php echo e(route('dinner')); ?>">Dinner</a>
             </div>
         </div>
 
         <div class="icon">
-            <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
-            <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
+            <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
+            <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
     </header>
 
@@ -272,3 +272,4 @@ const recipes = [
     </script>
 </body>
 </html>
+<?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/Lunch.blade.php ENDPATH**/ ?>

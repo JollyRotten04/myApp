@@ -11,7 +11,6 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-
     * {
         margin: 0;
         padding: 0;
@@ -23,7 +22,6 @@
         background-color: #f9f9f9;
         color: #333;
     }
-
 
     .header {
         display: flex;
@@ -53,7 +51,6 @@
         color: #fff;
     }
 
-    /* Styles for dropdown menu */
     .navbar {
         position: relative;
     }
@@ -81,17 +78,27 @@
         background-color: #696967;
     }
 
-    .navbar:hover .dropdown {
-        display: block;
+
+    .navbar {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
     }
 
-    .header .navbar a{
-        font-size: 1rem;
-        margin-right: 3rem;
-        color: var(--white);
-        font-weight: bold;
+    .navbar a {
+        color: #fff;
         text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+        position: relative;
+        font-weight: bolder;
     }
+
+    .navbar a:hover {
+        text-decoration: underline;
+    }
+
 
     .recipe-link-container {
         position: relative;
@@ -121,7 +128,6 @@
     #category-dropdown a:hover {
         background-color: #f0f0f0;
     }
-
 
     .recipes-grid {
         display: grid;
@@ -190,147 +196,111 @@
         right: 10px;
         background: none;
         border: none;
-        color: #f43f5e;
+        color: #ccc;
         font-size: 20px;
         cursor: pointer;
     }
 
     .favorite-button.active {
-        color: #ff0000;
+        color: red;
     }
 
-    a{
+    a {
         text-decoration: none;
     }
+ /* Icons Section */
+ .icon {
+            display: flex;
+            align-items: center;
+            size: 5cm;
+        }
+
+        .icon i {
+            font-size: 20px;
+            color: #fff;
+            margin-left: 15px;
+            cursor: pointer;
+        }
 
 </style>
 <body>
     <!-- Header Section -->
     <header class="header">
         <div class="logoContent">
-        <a href="<?php echo e(route('homepage')); ?>" style="text-decoration: none;"> <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1></a>
+            <a href="<?php echo e(route('homepage')); ?>" style="text-decoration: none;"> 
+                <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1>
+            </a>
         </div>
 
-        <nav class="navbar">
-            <div class="recipe-link-container">
-                <a href="<?php echo e(route('recipe')); ?>" id="recipe-link">Recipe</a>
-                <div class="dropdown" id="category-dropdown">
-                    <a href="<?php echo e(route('breakfast')); ?>">Breakfast</a>
-                    <a href="<?php echo e(route('lunch')); ?>">Lunch</a>
-                    <a href="<?php echo e(route('dinner')); ?>">Dinner</a>
-                </div>
+        <div class="navbar">
+            <a href="<?php echo e(route('recipe')); ?>">Recipe  | </a>
+            <div class="breakfast"> 
+                <a href="<?php echo e(route('breakfast')); ?>">Breakfast</a>
             </div>
-        </nav>
+            <div class="hide">
+                <a href="<?php echo e(route('lunch')); ?>">Lunch</a>
+                <a href="<?php echo e(route('dinner')); ?>">Dinner</a>
+            </div>
+        </div>
 
-        <div class="icon">
-            <i class="fas fa-search" id="search"></i>
+         <div class="icon">
             <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
             <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
-        </div>
-
-        <div class="search">
-            <input type="search" placeholder="Search...">
         </div>
     </header>
 
     <!-- Recipe Grid Section Start -->
     <section class="recipes-grid">
         <?php
-        // Array of recipes
         $recipes = [
-            [
-                "name" => "Chocolate Cake",
-                "author" => "Chef John",
-                "rating" => "⭐⭐⭐⭐⭐ (5.0)",
-                "image" => "images/chocolate cake.jpg",
-                "description" => "A rich and moist chocolate cake for dessert lovers."
-            ],
-            [
-                "name" => "Pasta Carbonara",
-                "author" => "Chef Jane",
-                "rating" => "⭐⭐⭐⭐ (4.5)",
-                "image" => "images/pasta carbonara.jpg",
-                "description" => "A creamy pasta dish with bacon and parmesan."
-            ],
-            [
-                "name" => "Chicken Alfredo",
-                "author" => "Chef Mark",
-                "rating" => "⭐⭐⭐⭐⭐ (5.0)",
-                "image" => "images/chicken alfredo.jpg",
-                "description" => "A classic Alfredo pasta with tender chicken slices."
-            ],
-            [
-                "name" => "Vegetable Stir-Fry",
-                "author" => "Chef Anna",
-                "rating" => "⭐⭐⭐⭐ (4.7)",
-                "image" => "images/vegetable-stir-fry.jpg",
-                "description" => "A quick and healthy stir-fry with fresh veggies."
-            ],
-            [
-                "name" => "Spaghetti Bolognese",
-                "author" => "Chef Luigi",
-                "rating" => "⭐⭐⭐⭐ (4.6)",
-                "image" => "images/spaghetti bolegnese.jpg",
-                "description" => "A hearty Italian pasta with meaty tomato sauce."
-            ],
-            [
-                "name" => "Caesar Salad",
-                "author" => "Chef Sophia",
-                "rating" => "⭐⭐⭐⭐⭐ (5.0)",
-                "image" => "images/caesar salad.jpg",
-                "description" => "Crispy romaine lettuce with creamy Caesar dressing."
-            ],
-            [
-                "name" => "Grilled Cheese Sandwich",
-                "author" => "Chef Bob",
-                "rating" => "⭐⭐⭐⭐ (4.2)",
-                "image" => "images/grilled-cheese.jpg",
-                "description" => "A gooey cheese sandwich grilled to perfection."
-            ],
-            [
-                "name" => "Beef Tacos",
-                "author" => "Chef Ricardo",
-                "rating" => "⭐⭐⭐⭐ (4.8)",
-                "image" => "images/beef tacos.jpg",
-                "description" => "Soft tacos filled with seasoned beef and toppings."
-            ],
-            [
-                "name" => "Vegetarian Pizza",
-                "author" => "Chef Olivia",
-                "rating" => "⭐⭐⭐⭐⭐ (5.0)",
-                "image" => "images/vegetarian-pizza.jpg",
-                "description" => "A flavorful pizza loaded with fresh veggies."
-            ],
-            [
-                "name" => "Chicken Tikka Masala",
-                "author" => "Chef Priya",
-                "rating" => "⭐⭐⭐⭐⭐ (5.0)",
-                "image" => "images/chicken masala.jpg",
-                "description" => "Spicy and creamy chicken curry with Indian spices."
-            ],
+            ["name" => "Chocolate Cake", "author" => "Chef John", "rating" => "⭐⭐⭐⭐⭐ (5.0)", "image" => "images/chocolate cake.jpg", "description" => "A rich and moist chocolate cake for dessert lovers."],
+    ["name" => "Pasta Carbonara", "author" => "Chef Jane", "rating" => "⭐⭐⭐⭐ (4.5)", "image" => "images/pasta carbonara.jpg", "description" => "A creamy pasta dish with bacon and parmesan."],
+    ["name" => "Chicken Alfredo", "author" => "Chef Mark", "rating" => "⭐⭐⭐⭐⭐ (5.0)", "image" => "images/chicken alfredo.jpg", "description" => "A classic Alfredo pasta with tender chicken slices."],
+    ["name" => "Vegetable Stir-Fry", "author" => "Chef Anna", "rating" => "⭐⭐⭐⭐ (4.3)", "image" => "images/Vegetable-Stir-fry.jpg", "description" => "A quick and healthy stir-fry with fresh veggies."],
+    ["name" => "Spaghetti Bolognese", "author" => "Chef Mario", "rating" => "⭐⭐⭐⭐⭐ (5.0)", "image" => "images/spaghetti bolegnese.jpg", "description" => "A hearty Italian pasta with meaty tomato sauce."],
+    ["name" => "Caesar Salad", "author" => "Chef Lisa", "rating" => "⭐⭐⭐⭐ (4.4)", "image" => "images/caesar salad.jpg", "description" => "Crispy romaine lettuce with creamy Caesar dressing."],
+    ["name" => "Grilled Cheese Sandwich", "author" => "Chef Tom", "rating" => "⭐⭐⭐⭐⭐ (4.8)", "image" => "images/grilled-cheese.jpg", "description" => "A gooey cheese sandwich grilled to perfection."],
+    ["name" => "Beef Tacos", "author" => "Chef Juan", "rating" => "⭐⭐⭐⭐⭐ (5.0)", "image" => "images/beef tacos.jpg", "description" => "Soft tacos filled with seasoned beef and toppings."],
+    ["name" => "Vegetarian Pizza", "author" => "Chef Emily", "rating" => "⭐⭐⭐⭐⭐ (4.9)", "image" => "images/vegetarian-pizza.jpg", "description" => "A flavorful pizza loaded with fresh veggies."],
+    ["name" => "Chicken Tikka Masala", "author" => "Chef Raj", "rating" => "⭐⭐⭐⭐⭐ (5.0)", "image" => "images/chicken masala.jpg", "description" => "Spicy and creamy chicken curry with Indian spices."]
         ];
 
-        // Loop through recipes and display them
+        // dd([
+        //     'recipe_name' => 'Adobo',
+        //     'recipe_description' => <<<EOT
+        // Adobo is a popular Filipino dish known for its savory and tangy flavors...
+        // EOT,
+        //     'recipe_instructions' => <<<EOT
+        // Step 1: Marinate the meat...
+        // EOT,
+        //     'recipe_ingredients' => <<<EOT
+        // 1 kg chicken...
+        // EOT
+        // ]);
+        
+
         foreach ($recipes as $recipe) {
             echo "
-            <a href ='" . route('ingredients') . "'>
             <div class='recipe-card' onclick='openRecipeModal(\"{$recipe['name']}\")'>
                 <div class='recipe-image'>
-                    <img src='{$recipe['image']}' alt='{$recipe['name']}'>
+                    <img src='{$recipe['image']}' alt='{$recipe['recipe_name']}'>
                 </div>
                 <div class='recipe-details'>
-                    <h3 class='recipe-name'>{$recipe['name']}</h3>
+                    <h3 class='recipe-name'>{$recipe['recipe_name']}</h3>
                     <p class='recipe-author'>By {$recipe['author']}</p>
                     <div class='rating'>
                         <span>{$recipe['rating']}</span>
                     </div>
                 </div>
-                <button class='favorite-button' aria-label='Add to favorites'>❤️</button>
+                <!-- Heart button for favorites -->
+                <button class='favorite-button' onclick='toggleFavorite(event, this)'>
+                    <i class='fas fa-heart'></i>
+                </button>
             </div>
-            </a>
             ";
         }
         ?>
+
     </section>
 
     <!-- Recipe Modal -->
@@ -343,19 +313,12 @@
     </div>
 
     <script>
-        // JavaScript for opening and closing modal
         function openRecipeModal(recipeName) {
             const recipes = {
                 "Chocolate Cake": "A rich and moist chocolate cake for dessert lovers.",
                 "Pasta Carbonara": "A creamy pasta dish with bacon and parmesan.",
                 "Chicken Alfredo": "A classic Alfredo pasta with tender chicken slices.",
-                "Vegetable Stir-Fry": "A quick and healthy stir-fry with fresh veggies.",
-                "Spaghetti Bolognese": "A hearty Italian pasta with meaty tomato sauce.",
-                "Caesar Salad": "Crispy romaine lettuce with creamy Caesar dressing.",
-                "Grilled Cheese Sandwich": "A gooey cheese sandwich grilled to perfection.",
-                "Beef Tacos": "Soft tacos filled with seasoned beef and toppings.",
-                "Vegetarian Pizza": "A flavorful pizza loaded with fresh veggies.",
-                "Chicken Tikka Masala": "Spicy and creamy chicken curry with Indian spices.",
+                // Add more recipes here...
             };
 
             document.getElementById('modal-title').innerText = recipeName;
@@ -365,6 +328,11 @@
 
         function closeRecipeModal() {
             document.getElementById('recipe-modal').style.display = 'none';
+        }
+
+        function toggleFavorite(event, button) {
+            event.stopPropagation(); // Prevents the click from bubbling up to the parent div or link
+            button.classList.toggle('active');
         }
     </script>
 </body>

@@ -63,9 +63,12 @@
             gap: 20px;
         }
 
+        /* Navbar - Navigation Links */
         .navbar {
             display: flex;
             align-items: center;
+            flex-grow: 1;
+            justify-content: center;
         }
 
         .navbar a {
@@ -74,11 +77,13 @@
             margin: 0 15px;
             font-size: 18px;
             position: relative;
+            font-weight: bolder;
         }
 
         .navbar a:hover {
             text-decoration: underline;
         }
+
 
         .recipe-card {
             width: 220px;
@@ -137,28 +142,50 @@
         a{
             text-decoration: none;
         }
+
+
+        /* Icons Section */
+        .icon {
+            display: flex;
+            align-items: center;
+            size: 5cm;
+        }
+
+        .icon i {
+            font-size: 20px;
+            color: #fff;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header>
-        <div>
-            <a href="<?php echo e(route('homepage')); ?>"> <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1></a>
+    <header class="header">
+        <div class="logoContent">
+            <a href="<?php echo e(route('homepage')); ?>" style="text-decoration: none;"> 
+                <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1>
+            </a>
         </div>
-        <nav class="navbar">
-            <a href="<?php echo e(route('recipe')); ?>">Recipe</a>
-            <div class="dropdown">
+
+        <div class="navbar">
+            <a href="<?php echo e(route('recipe')); ?>">Recipe  | </a>
+            <div class="breakfast"> 
                 <a href="<?php echo e(route('breakfast')); ?>">Breakfast</a>
+            </div>
+            <div class="hide">
                 <a href="<?php echo e(route('lunch')); ?>">Lunch</a>
                 <a href="<?php echo e(route('dinner')); ?>">Dinner</a>
             </div>
-        </nav>
-        <div>
-            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="icon">
             <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
             <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
     </header>
+
 
     <!-- Favorites Section -->
     <section class="favorites-section">
@@ -166,7 +193,7 @@
         <div class="recipes-grid">
             <?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="recipe-card">
-                <a href="<?php echo e(route('ingredients')); ?>">
+                <a href="<?php echo e(route('ingredients')); ?>?image=<?php echo e($recipe['image']); ?>&name=<?php echo e($recipe['name']); ?>">
                 <div class="recipe-image">
                     <img src="<?php echo e(asset('images/images/' . $recipe['image'])); ?>" alt="<?php echo e($recipe['name']); ?>">
                 </div>

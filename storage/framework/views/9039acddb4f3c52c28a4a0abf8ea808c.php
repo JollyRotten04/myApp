@@ -6,7 +6,7 @@
     <title>4B's Recipe</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/recipe.css')); ?>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -72,6 +72,7 @@
         .icon {
             display: flex;
             align-items: center;
+            size: 5cm;
         }
 
         .icon i {
@@ -182,51 +183,50 @@
     <!-- Header Section -->
     <header class="header">
         <div class="logoContent">
-            <a href="{{ route('homepage') }}" style="text-decoration: none;"> 
+            <a href="<?php echo e(route('homepage')); ?>" style="text-decoration: none;"> 
                 <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1>
             </a>
         </div>
 
         <div class="navbar">
-            <a href="{{ route('recipe') }}">Recipe  | </a>
+            <a href="<?php echo e(route('recipe')); ?>">Recipe  | </a>
             <div class="breakfast"> 
-                <a href="{{ route('breakfast') }}">Breakfast</a>
+                <a href="<?php echo e(route('breakfast')); ?>">Breakfast</a>
             </div>
             <div class="hide">
-                <a href="{{ route('lunch') }}">Lunch</a>
-                <a href="{{ route('dinner') }}">Dinner</a>
+                <a href="<?php echo e(route('lunch')); ?>">Lunch</a>
+                <a href="<?php echo e(route('dinner')); ?>">Dinner</a>
             </div>
         </div>
 
-        <div class="icon">
-            <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
-            <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
+         <div class="icon">
+            <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
+            <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
     </header>
 
     <!-- Main Content Section -->
     <section class="favorites-section">
-        <h2>Lunch</h2>
+        <h2>Breakfast</h2>
         <div class="recipes-grid" id="recipes-grid">
             <!-- Recipe Cards will be dynamically inserted here -->
         </div>
     </section>
 
     <script>
-// Array of recipes with relevant data
-const recipes = [
-    { name: 'Adobo', image: 'images/adobo.png', author: 'Chef Antonette', rating: 4.7 },
-    { name: 'Caldereta', image: 'images/Caldereta.jpg', author: 'Chef Kaye', rating: 4.4 },
-    { name: 'Chicken Curry', image: 'images/chicken-curry.jpg', author: 'Chef Mae', rating: 4.8 },
-    { name: 'Chop Suey', image: 'images/Chop Suey.jpg', author: 'Chef Seah', rating: 4.9 },
-    { name: 'Escabeche', image: 'images/Escabeche.jpg', author: 'Chef Bianca', rating: 4.8 },
-    { name: 'Kare-Kare', image: 'images/kare-kare.jpg', author: 'Chef Thea', rating: 4.5 },
-    { name: 'Lumpiang Shanghai', image: 'images/lumpiang shanghai.jpg', author: 'Chef Prince', rating: 4.7 },
-    { name: 'Pinakbet', image: 'images/pinakbet.jpg', author: 'Chef Jake', rating: 4.7 },
-    { name: 'Sinigang', image: 'images/Sinigang.jpg', author: 'Chef Kim', rating: 4.9 },
-    { name: 'Tinola', image: 'images/tinola.jpg', author: 'Chef Bianca', rating: 4.8 }
-];
-
+        // Array of recipes with relevant data
+        const recipes = [
+            { name: 'Champorado with Tuyo', image: 'images/Champorado.jpg', author: 'Chef Antonette', rating: 4.8 },
+            { name: 'Daing', image: 'images/Daing.jpg', author: 'Chef Justin', rating: 4.8 },
+            { name: 'Fried Rice', image: 'images/Fried_rice.jpg', author: 'Chef Meshe', rating: 4.8 },
+            { name: 'Mango Loaf Bread', image: 'images/Loaf_bread.jpg', author: 'Chef Leah', rating: 4.5 },
+            { name: 'Longsilog', image: 'images/Longsilog.jpg', author: 'Chef Bianca', rating: 4.6 },
+            { name: 'Omelette', image: 'images/Omelette.jpg', author: 'Chef Thea', rating: 4.8 },
+            { name: 'Pancake', image: 'images/Pancake.jpg', author: 'Chef Prince', rating: 4.6 },
+            { name: 'Sandwich', image: 'images/Sandwich.jpg', author: 'Chef Jake', rating: 4.3 },
+            { name: 'Tocino', image: 'images/Tocino.jpg', author: 'Chef Kim', rating: 4.6 },
+            { name: 'Waffles', image: 'images/Waffles.jpg', author: 'Chef Bianca', rating: 4.9 }
+        ];
 
         // Function to create and display the recipe cards
         const displayRecipes = () => {
@@ -272,3 +272,4 @@ const recipes = [
     </script>
 </body>
 </html>
+<?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/Breakfast.blade.php ENDPATH**/ ?>

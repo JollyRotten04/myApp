@@ -63,9 +63,12 @@
             gap: 20px;
         }
 
+        /* Navbar - Navigation Links */
         .navbar {
             display: flex;
             align-items: center;
+            flex-grow: 1;
+            justify-content: center;
         }
 
         .navbar a {
@@ -74,11 +77,13 @@
             margin: 0 15px;
             font-size: 18px;
             position: relative;
+            font-weight: bolder;
         }
 
         .navbar a:hover {
             text-decoration: underline;
         }
+
 
         .recipe-card {
             width: 220px;
@@ -137,28 +142,50 @@
         a{
             text-decoration: none;
         }
+
+
+        /* Icons Section */
+        .icon {
+            display: flex;
+            align-items: center;
+            size: 5cm;
+        }
+
+        .icon i {
+            font-size: 20px;
+            color: #fff;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header>
-        <div>
-            <a href="{{ route('homepage') }}"> <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1></a>
+    <header class="header">
+        <div class="logoContent">
+            <a href="{{ route('homepage') }}" style="text-decoration: none;"> 
+                <h1 style="color: #B8B07D; font-weight: 800; font-size: 2rem; margin: 0;">4Bs</h1>
+            </a>
         </div>
-        <nav class="navbar">
-            <a href="{{ route('recipe') }}">Recipe</a>
-            <div class="dropdown">
+
+        <div class="navbar">
+            <a href="{{ route('recipe') }}">Recipe  | </a>
+            <div class="breakfast"> 
                 <a href="{{ route('breakfast') }}">Breakfast</a>
+            </div>
+            <div class="hide">
                 <a href="{{ route('lunch') }}">Lunch</a>
                 <a href="{{ route('dinner') }}">Dinner</a>
             </div>
-        </nav>
-        <div>
-            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="icon">
             <a href="{{ route('favorites') }}"><i class="fas fa-heart" id="heart"></i></a>
             <a href="{{ route('profile') }}"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
     </header>
+
 
     <!-- Favorites Section -->
     <section class="favorites-section">
@@ -166,7 +193,7 @@
         <div class="recipes-grid">
             @foreach ($recipes as $recipe)
             <div class="recipe-card">
-                <a href="{{ route('ingredients') }}">
+                <a href="{{ route('ingredients') }}?image={{ $recipe['image'] }}&name={{ $recipe['name'] }}">
                 <div class="recipe-image">
                     <img src="{{ asset('images/images/' . $recipe['image']) }}" alt="{{ $recipe['name'] }}">
                 </div>
