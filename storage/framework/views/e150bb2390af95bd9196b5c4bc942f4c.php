@@ -95,17 +95,14 @@
         }
 
         /* Recipe Grid */
-        .recipes-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 5 columns */
-            gap: 20px;
-            padding: 0 20px;
-            cursor: pointer;
-        }
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 20px;
+    padding: 0 20px;
+    cursor: pointer;
+}
 
-        a{
-            text-decoration: none;
-        }
 
         /* Recipe Card */
         .recipe-card {
@@ -213,6 +210,7 @@
     <section class="favorites-section">
         <h2>Breakfast</h2>
         <div class="recipes-grid" id="recipes-grid">
+            <a href="<?php echo e(route('ingredients')); ?>?image=<?php echo e($recipe['image']); ?>&name=<?php echo e($recipe['name']); ?>"></A>
             <!-- Recipe Cards will be dynamically inserted here -->
         </div>
     </section>
@@ -233,54 +231,47 @@
         ];
 
         // Function to create and display the recipe cards
-        // Function to create and display the recipe cards
-const displayRecipes = () => {
-    const recipesGrid = document.getElementById('recipes-grid');
-    recipes.forEach(recipe => {
-        const recipeCard = document.createElement('div');
-        recipeCard.classList.add('recipe-card');
+        const displayRecipes = () => {
+            const recipesGrid = document.getElementById('recipes-grid');
+            recipes.forEach(recipe => {
+                const recipeCard = document.createElement('div');
+                recipeCard.classList.add('recipe-card');
 
-        const recipeLink = document.createElement('a');
-        recipeLink.classList.add('recipe-link');
-        recipeLink.href = `<?php echo e(route('ingredients')); ?>?image=${recipe.image}&name=${recipe.name}`;
-        recipeLink.innerHTML = `
-            <div class="recipe-image">
-                <img src="${recipe.image}" alt="${recipe.name}">
-            </div>
-            <div class="recipe-details">
-                <p class="recipe-name">${recipe.name}</p>
-                <p class="recipe-author">Recipe by: ${recipe.author}</p>
-                <div class="rating">
-                    <span>&#9733;</span>
-                    <span>${recipe.rating}</span>
-                </div>
-            </div>
-            <button class="favorite-button">
-                <i class="fas fa-heart"></i>
-            </button>
-        `;
+                recipeCard.innerHTML = `
+                    <div class="recipe-image">
+                        <img src="${recipe.image}" alt="${recipe.name}">
+                    </div>
+                    <div class="recipe-details">
+                        <p class="recipe-name">${recipe.name}</p>
+                        <p class="recipe-author">Recipe by: ${recipe.author}</p>
+                        <div class="rating">
+                            <span>&#9733;</span>
+                            <span>${recipe.rating}</span>
+                        </div>
+                    </div>
+                    <button class="favorite-button">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                `;
 
-        recipeCard.appendChild(recipeLink);
+                // Add functionality to the favorite button
+                const favoriteButton = recipeCard.querySelector('.favorite-button');
+                favoriteButton.addEventListener('click', () => {
+                    favoriteButton.classList.toggle('active');
+                    if (favoriteButton.classList.contains('active')) {
+                        console.log(`"${recipe.name}" added to favorites.`);
+                    } else {
+                        console.log(`"${recipe.name}" removed from favorites.`);
+                    }
+                });
 
-        // Add functionality to the favorite button
-        const favoriteButton = recipeCard.querySelector('.favorite-button');
-        favoriteButton.addEventListener('click', () => {
-            favoriteButton.classList.toggle('active');
-            if (favoriteButton.classList.contains('active')) {
-                console.log(`"${recipe.name}" added to favorites.`);
-            } else {
-                console.log(`"${recipe.name}" removed from favorites.`);
-            }
-        });
+                recipesGrid.appendChild(recipeCard);
+            });
+        };
 
-        recipesGrid.appendChild(recipeCard);
-    });
-};
-
-// Call the function to display recipes
-displayRecipes();
-
+        // Call the function to display recipes
+        displayRecipes();
     </script>
 </body>
 </html>
-<?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/Breakfast.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/breakfast.blade.php ENDPATH**/ ?>

@@ -72,7 +72,6 @@
         .icon {
             display: flex;
             align-items: center;
-            size: 5cm;
         }
 
         .icon i {
@@ -95,17 +94,13 @@
         }
 
         /* Recipe Grid */
-        .recipes-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 5 columns */
-            gap: 20px;
-            padding: 0 20px;
-            cursor: pointer;
-        }
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 20px;
+    padding: 0 20px;
+}
 
-        a{
-            text-decoration: none;
-        }
 
         /* Recipe Card */
         .recipe-card {
@@ -170,6 +165,10 @@
             color: red;
         }
 
+        a{
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -203,7 +202,7 @@
             </div>
         </div>
 
-         <div class="icon">
+        <div class="icon">
             <a href="<?php echo e(route('favorites')); ?>"><i class="fas fa-heart" id="heart"></i></a>
             <a href="<?php echo e(route('profile')); ?>"><i class="fas fa-user-circle" id="profile"></i></a>
         </div>
@@ -211,26 +210,27 @@
 
     <!-- Main Content Section -->
     <section class="favorites-section">
-        <h2>Breakfast</h2>
+        <h2>Lunch</h2>
         <div class="recipes-grid" id="recipes-grid">
             <!-- Recipe Cards will be dynamically inserted here -->
         </div>
     </section>
 
     <script>
-        // Array of recipes with relevant data
-        const recipes = [
-            { name: 'Champorado with Tuyo', image: 'images/Champorado.jpg', author: 'Chef Antonette', rating: 4.8 },
-            { name: 'Daing', image: 'images/Daing.jpg', author: 'Chef Justin', rating: 4.8 },
-            { name: 'Fried Rice', image: 'images/Fried_rice.jpg', author: 'Chef Meshe', rating: 4.8 },
-            { name: 'Mango Loaf Bread', image: 'images/Loaf_bread.jpg', author: 'Chef Leah', rating: 4.5 },
-            { name: 'Longsilog', image: 'images/Longsilog.jpg', author: 'Chef Bianca', rating: 4.6 },
-            { name: 'Omelette', image: 'images/Omelette.jpg', author: 'Chef Thea', rating: 4.8 },
-            { name: 'Pancake', image: 'images/Pancake.jpg', author: 'Chef Prince', rating: 4.6 },
-            { name: 'Sandwich', image: 'images/Sandwich.jpg', author: 'Chef Jake', rating: 4.3 },
-            { name: 'Tocino', image: 'images/Tocino.jpg', author: 'Chef Kim', rating: 4.6 },
-            { name: 'Waffles', image: 'images/Waffles.jpg', author: 'Chef Bianca', rating: 4.9 }
-        ];
+// Array of recipes with relevant data
+const recipes = [
+    { name: 'Adobong Pusit', image: 'images/adobong pusit.jpg', author: 'Chef Antonette', rating: 4.7 },
+    { name: 'Chop Suey', image: 'images/Chop Suey.jpg', author: 'Chef Kaye', rating: 4.4 },
+    { name: 'Bicol Express', image: 'images/bicol-express.jpg', author: 'Chef Mae', rating: 4.9 },
+    { name: 'Adobo', image: 'images/adobo.png', author: 'Chef Seah', rating: 4.3 },
+    { name: 'Lechon Kawali', image: 'images/lechon kawali.jpg', author: 'Chef Bianca', rating: 4.6 },
+    { name: 'Beef Steak', image: 'images/filipino beef steak.jpg', author: 'Chef Thea', rating: 4.9 },
+    { name: 'Chicken Salad', image: 'images/Chicken Salad.jpg', author: 'Chef Prince', rating: 4.7 },
+    { name: 'Afritada', image: 'images/Afritada.jpg', author: 'Chef Jake', rating: 4.6 },
+    { name: 'Garlic Lime Shrimp', image: 'images/Garlic shrimp.jpg', author: 'Chef Kim', rating: 4.9 },
+    { name: 'Kare-Kare', image: 'images/kare-kare.jpg', author: 'Chef Bianca', rating: 4.7 }
+];
+
 
         // Function to create and display the recipe cards
         // Function to create and display the recipe cards
@@ -283,4 +283,4 @@ displayRecipes();
     </script>
 </body>
 </html>
-<?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/Breakfast.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\acer\Desktop\myApp\resources\views/dinner.blade.php ENDPATH**/ ?>

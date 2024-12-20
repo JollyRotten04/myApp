@@ -165,6 +165,10 @@
             color: red;
         }
 
+        a{
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -229,46 +233,53 @@ const recipes = [
 
 
         // Function to create and display the recipe cards
-        const displayRecipes = () => {
-            const recipesGrid = document.getElementById('recipes-grid');
-            recipes.forEach(recipe => {
-                const recipeCard = document.createElement('div');
-                recipeCard.classList.add('recipe-card');
+        // Function to create and display the recipe cards
+const displayRecipes = () => {
+    const recipesGrid = document.getElementById('recipes-grid');
+    recipes.forEach(recipe => {
+        const recipeCard = document.createElement('div');
+        recipeCard.classList.add('recipe-card');
 
-                recipeCard.innerHTML = `
-                    <div class="recipe-image">
-                        <img src="${recipe.image}" alt="${recipe.name}">
-                    </div>
-                    <div class="recipe-details">
-                        <p class="recipe-name">${recipe.name}</p>
-                        <p class="recipe-author">Recipe by: ${recipe.author}</p>
-                        <div class="rating">
-                            <span>&#9733;</span>
-                            <span>${recipe.rating}</span>
-                        </div>
-                    </div>
-                    <button class="favorite-button">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                `;
+        const recipeLink = document.createElement('a');
+        recipeLink.classList.add('recipe-link');
+        recipeLink.href = `{{ route('ingredients') }}?image=${recipe.image}&name=${recipe.name}`;
+        recipeLink.innerHTML = `
+            <div class="recipe-image">
+                <img src="${recipe.image}" alt="${recipe.name}">
+            </div>
+            <div class="recipe-details">
+                <p class="recipe-name">${recipe.name}</p>
+                <p class="recipe-author">Recipe by: ${recipe.author}</p>
+                <div class="rating">
+                    <span>&#9733;</span>
+                    <span>${recipe.rating}</span>
+                </div>
+            </div>
+            <button class="favorite-button">
+                <i class="fas fa-heart"></i>
+            </button>
+        `;
 
-                // Add functionality to the favorite button
-                const favoriteButton = recipeCard.querySelector('.favorite-button');
-                favoriteButton.addEventListener('click', () => {
-                    favoriteButton.classList.toggle('active');
-                    if (favoriteButton.classList.contains('active')) {
-                        console.log(`"${recipe.name}" added to favorites.`);
-                    } else {
-                        console.log(`"${recipe.name}" removed from favorites.`);
-                    }
-                });
+        recipeCard.appendChild(recipeLink);
 
-                recipesGrid.appendChild(recipeCard);
-            });
-        };
+        // Add functionality to the favorite button
+        const favoriteButton = recipeCard.querySelector('.favorite-button');
+        favoriteButton.addEventListener('click', () => {
+            favoriteButton.classList.toggle('active');
+            if (favoriteButton.classList.contains('active')) {
+                console.log(`"${recipe.name}" added to favorites.`);
+            } else {
+                console.log(`"${recipe.name}" removed from favorites.`);
+            }
+        });
 
-        // Call the function to display recipes
-        displayRecipes();
+        recipesGrid.appendChild(recipeCard);
+    });
+};
+
+// Call the function to display recipes
+displayRecipes();
+
     </script>
 </body>
 </html>

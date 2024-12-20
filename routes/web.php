@@ -38,19 +38,19 @@ Route::get('/favorites', [RecipeController::class, 'showFavorites'])->name('favo
 Route::get('/ingredients', [RecipeController::class, 'showIngredients'])->name('ingredients');
 
 // Recipe Route (Controller version)
-Route::get('/recipe', [RecipeController::class, 'showIngredients'])->name('recipe');
+Route::get('/recipe', [RecipeController::class, 'showFavorites'])->name('recipe');
 
 // Profile Route
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
 
 // Breakfast Routes
-Route::get('/breakfast', [BreakfastController::class, 'index'])->name('breakfast');
+Route::get('/breakfast', [BreakfastController::class, 'showIngredients'])->name('breakfast');
 
 // Lunch Routes
-Route::get('/lunch', [LunchController::class, 'index'])->name('lunch');
+Route::get('/lunch', [LunchController::class, 'showIngredients'])->name('lunch');
 
 // Dinner Routes
-Route::get('/dinner', [DinnerController::class, 'index'])->name('dinner');
+Route::get('/dinner', [DinnerController::class, 'showIngredients'])->name('dinner');
 
 Route::get('/privacy-policy', function () {
     return view('PrivacyPolicy');
